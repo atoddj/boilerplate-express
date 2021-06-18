@@ -19,7 +19,15 @@ app.get('/', (req, res) => {
 app.get('/json', (req, res) => {
     var message = process.env.MESSAGE_STYLE === 'uppercase' ? 'HELLO JSON' : 'Hello json';
     res.json({message});
-})
+});
+
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+}, (req, res) => {
+    var time = req.time;
+    res.json({time});
+});
 
 
 
