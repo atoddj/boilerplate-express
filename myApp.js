@@ -11,7 +11,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/json', (req, res) => {
-    res.json({"message": "Hello json"});
+    var message = process.env.MESSAGE_STYLE === 'uppercase' ? 'HELLO JSON' : 'Hello json';
+    res.json({message});
 })
 
 
