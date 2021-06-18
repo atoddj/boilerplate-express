@@ -31,7 +31,12 @@ app.get('/now', (req, res, next) => {
 
 app.get('/:word/echo', (req, res) => {
     res.json({"echo": req.params.word});
-})
+});
+
+app.get('/name', (req, res) => {
+    var {first: FirstName, last: LastName } = req.query;
+    res.json({name: `${firstName} ${lastName}`});
+});
 
 
 
